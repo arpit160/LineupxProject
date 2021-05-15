@@ -6,7 +6,7 @@ function checkemployeelogin(req,res,next)
  }
  else
  {
-     res.send("Please Login first")
+     res.redirect("/employee/login")
  }
 }
 
@@ -18,7 +18,7 @@ function checkcandidatelogin(req,res,next)
  }
  else
  {
-     res.send("Please Login first")
+     res.redirect("/candidate/login")
  }
 }
 

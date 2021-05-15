@@ -251,8 +251,21 @@ app.get('/candidate/appliedjobs/:candidateid',checkcandidatelogin,async (req,res
 })
 app.get('/candidate/rejectedjobs/:candidateid',checkcandidatelogin,async (req,res)=>
 {
+    const x={
+        path:'rejectedjobs',
+        populate:
+        ({
+            path:'rejectedjob',
+            model:'Job',
+            populate:
+            ({
+                path:'postedby',model:'Employee'
+            })
+        })
+        
+    };
     candidateid=req.params.candidateid;
-    candidate=await Candidate.findOne({_id:candidateid}).populate({path:'rejectedjobs.rejectedjob',model:'Job'}).populate({path:'rejectedjobs.rejectedjob.postedby',model:'Employee'});
+    candidate=await Candidate.findOne({_id:candidateid}).populate({path:'rejectedjobs.rejectedjob',model:'Job'}).populate(x);
     arr=candidate.rejectedjobs;
     rejectedarr=[]
     arr.forEach(function(a)
