@@ -1,0 +1,63 @@
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div style="padding:15px; display: flex; align-items: center; background-color:antiquewhite;  border-bottom: 1 px solid black; margin-bottom: 20px;">
+<div style="width:70%; padding-left: 10%; ">
+    <h3>Candidate Portal</h3>
+</div>
+<div style="display: flex; justify-content: center;">
+    <div style="margin-right: 50px;">
+        <a href="/candidate/appliedjobs/<%= candidateid %> ">Applied jobs</a>
+    </div>
+    <div>
+        <a href="/candidate/rejectedjobs/<%= candidateid %> ">Rejected jobs</a>
+    </div>
+</div>
+<div style="width:30%; display: flex; justify-content: space-around; align-items: center;">
+    <div><%= name %> </div>
+    <button><a href="/candidate/logout" style="text-decoration: none; margin: 10px">Logout</a></button>
+</div>
+</div>
+
+<div style="text-align: center; margin: 30px auto;">
+    <h2>Availabe Jobs</h2>
+</div>
+
+<div style="padding: 50px; display: flex; flex-wrap: wrap;">
+    <% for( let i = 0; i < jobarr.length; i++ ) { %>
+        <div style="margin: 20px; border: 1px solid black; padding: 20px; width:20%; ">
+            <div style="margin: 5px 0;">
+                Name:<%= jobarr[i].jobname  %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Designation:<%= jobarr[i].jobdesignation  %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Salary:<%= jobarr[i].jobsalary %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Location:<%= jobarr[i].joblocation %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                PostedBy:<%= jobarr[i].postedby.employeename %> 
+            </div>
+            <hr>
+            <div style="margin: 10px 0; display: flex; justify-content: space-around;">
+                <form action="/candidate/applyjob/<%= jobarr[i]._id %>/<%= candidateid %>" method="POST"> 
+                    <button role="submit">Apply</button>
+                </form>
+                <form action="/candidate/rejectjob/<%= jobarr[i]._id %>/<%= candidateid %>" method="POST">
+                    <button role="submit">Reject</button>
+                </form>
+            </div>
+        </div>
+    <% } %>
+</div>

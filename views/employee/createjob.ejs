@@ -1,0 +1,40 @@
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div style="padding:15px; display: flex; align-items: center; background-color:antiquewhite;  border-bottom: 1 px solid black; margin-bottom: 20px;">
+<div style="width:70%; padding-left: 10%; ">
+    <h3>Employee Portal</h3>
+</div>
+<div style="width:30%; display: flex; justify-content: space-around; align-items: center;">
+    <div><%= employeename %> </div>
+    <button><a href="/employee/logout" style="text-decoration: none; margin: 10px">Logout</a></button>
+</div>
+</div>
+
+<div style="text-align: center; margin: 30px auto;">
+    <h2>Posted Jobs</h2>
+</div>
+
+<div style="border: 1px solid black; padding:20px; width: 30%; margin-left: 35%; margin-top: 30px;">
+    <form method="POST" action="/employee/createjob/<%= id %> ">
+        <div style="margin-bottom: 10px;">
+            job name: <input type="text" name="jobname">
+        </div>
+        <div style="margin-bottom: 10px;">
+            job designation : <input type="text" name="jobdesignation">
+        </div>
+        <div style="margin-bottom: 10px;">
+            job salary : <input type="text" name="jobsalary">
+        </div>
+        <div style="margin-bottom: 10px;">
+            job location : <input type="text" name="joblocation">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <button role="submit">Click</button>
+        </div>
+     </form>
+</div>

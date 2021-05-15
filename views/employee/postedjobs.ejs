@@ -1,0 +1,55 @@
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div style="padding:15px; display: flex; align-items: center; background-color:antiquewhite;  border-bottom: 1 px solid black; margin-bottom: 20px;">
+<div style="width:70%; padding-left: 10%; ">
+    <h3>Employee Portal</h3>
+</div>
+<div style="width:30%; display: flex; justify-content: space-around; align-items: center;">
+    <div><%= employeename %> </div>
+    <button><a href="/employee/logout"  style="text-decoration: none; margin: 10px">Logout</a></button>
+</div>
+</div>
+
+<div style="text-align: center; margin: 30px auto;">
+    <h2>Posted Jobs</h2>
+</div>
+<div style="text-align: center;">
+    <button><a  style="text-decoration: none;" href='/employee/createjob/<%= eid %>'>Create new Job</a></button>
+</div>
+<div style="padding: 50px; display: flex; flex-wrap: wrap;">
+    <% for( let i = 0; i < jobsposted.length; i++ ) { %>
+        <div style="margin: 20px; border: 1px solid black; padding: 20px; width:20%; ">
+            <div style="margin: 5px 0;">
+                Name:<%= jobsposted[i].jobname  %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Designation:<%= jobsposted[i].jobdesignation  %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Salary:<%= jobsposted[i].jobsalary %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                Location:<%= jobsposted[i].joblocation %> 
+            </div>
+            <hr>
+            <div style="margin: 5px 0;">
+                    Applied By:
+                    <ul style="padding-left: 30px;"> 
+                        <% if (jobsposted[i].appliedby ) { %>
+                            <% for( let j of jobsposted[i].appliedby ) { %>
+                                <li style="margin: 10px 0;"><%= j.appliedid.candidatename %> </li>
+                            <% } %>
+                        <% } %> 
+                    </ul>
+            </div>
+        </div>
+    <% } %>
+</div>
