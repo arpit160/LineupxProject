@@ -35,6 +35,7 @@ app.get('/',(req,res)=>
 
 
 //---------------Employer---------------//
+// -------Employer has been mispelled as employee, kindly ignore it----------------//
 
 app.get('/employee/register',(req,res)=>
 {
@@ -110,6 +111,8 @@ app.get('/employee/logout',checkemployeelogin,(req,res)=>
     delete req.session.employee;
     res.redirect('/employee/login');
 })
+
+
 //-------------------------Candidates----------------------------------------//
 
 

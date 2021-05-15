@@ -12,11 +12,11 @@ const jobSchema=new mongoose.Schema({
        type:mongoose.Schema.Types.ObjectId,
        ref:'Employee'
    },
-   appliedby:[
-       {appliedid:{
-           type:mongoose.Schema.Types.ObjectId
-           ,ref:'Employee' 
-       }}
+   appliedby:
+   [
+        {
+           appliedid:{type:mongoose.Schema.Types.ObjectId ,ref:'Employee' }
+        }
    ]
     ,
    jobstatus:String

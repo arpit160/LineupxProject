@@ -17,17 +17,15 @@ const candidateSchema=new mongoose.Schema({
     },
     rejectedjobs:
     [
-        {rejectedjob:{
-        type:mongoose.Schema.Types.ObjectID,
-        ref:'Job'    
-        }}
+        {
+            rejectedjob:{type:mongoose.Schema.Types.ObjectID,ref:'Job'}
+        }
     ],
     appliedjobs:
     [
-        {appliedjob:{
-            type:mongoose.Schema.Types.ObjectID
-            ,ref:'Job'
-        }  }
+        {
+            appliedjob:{type:mongoose.Schema.Types.ObjectID,ref:'Job'}  
+        }
     ]
     ,
 })
